@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Example</title>
+    <style>
+        /* You can add some CSS here if you'd like */
+        #heading {
+            color: black;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="heading">Hello, World!</h1>
+    
+    <button id="changeTextBtn">Change Text</button>
+    <button id="changeStyleBtn">Change Style</button>
+    <button id="addElementBtn">Add Element</button>
+    <button id="removeElementBtn">Remove Element</button>
+
+    <div id="container"></div>
+
+    <script>
+        // Change text content dynamically
+        document.getElementById('changeTextBtn').addEventListener('click', function() {
+            document.getElementById('heading').textContent = 'Text Changed!';
+        });
+
+        // Modify CSS styles via JavaScript
+        document.getElementById('changeStyleBtn').addEventListener('click', function() {
+            document.getElementById('heading').style.color = 'blue';
+            document.getElementById('heading').style.fontSize = '50px';
+        });
+
+        // Add a new element when the button is clicked
+        document.getElementById('addElementBtn').addEventListener('click', function() {
+            const newElement = document.createElement('p');
+            newElement.textContent = 'This is a new paragraph added dynamically!';
+            document.getElementById('container').appendChild(newElement);
+        });
+
+        // Remove the last element from the container
+        document.getElementById('removeElementBtn').addEventListener('click', function() {
+            const container = document.getElementById('container');
+            if (container.lastChild) {
+                container.removeChild(container.lastChild);
+            }
+        });
+    </script>
+
+</body>
+</html>
